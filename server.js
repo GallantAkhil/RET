@@ -143,7 +143,7 @@ app.post('/RHeader',function(req, res){
 	var DriverS = req.body.DS;
 	var DateCollected = req.body.DC;
 	var CustomerContact = req.body.CC;
-	if(CustomerContact != 'null')
+	if(CustomerContact != 'null'){
 	sql.connect(config, function(err){
 		if(err) console.log(err);
 		var request = new sql.Request();
@@ -161,7 +161,7 @@ app.post('/RHeader',function(req, res){
 			if(err) console.log(err)
 				res.end(JSON.stringify(result));
 		})
-	})
+	});}else{
 	sql.connect(config, function(err){
 		if(err) console.log(err);
 		var request = new sql.Request();
@@ -179,7 +179,7 @@ app.post('/RHeader',function(req, res){
 			if(err) console.log(err)
 				res.end(JSON.stringify(result));
 		})
-	})
+	})}
 });
 
 app.post('/Image',function(req, res){
