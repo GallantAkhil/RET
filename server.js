@@ -189,6 +189,7 @@ app.post('/REPost',function(req, res){
 	var QtyCase = req.body.QC;
 	var QtySing = req.body.QS;
 	var Act = req.body.act;
+	console.log(ImageID);
 	if(BBD == 'null'){
 		console.log(null);
 	sql.connect(config, function(err){
