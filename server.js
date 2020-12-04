@@ -151,7 +151,7 @@ app.post('/RHeader',function(req, res){
 		request.input('input_parameters1', sql.DateTime, date)
 		request.input('input_parameters2', sql.NVarChar, LoginID)
 		request.input('input_parameters3', sql.Int, status)
-		request.input('input_parameter4', sql.Int, imageID)
+		request.input('input_parameters4', sql.Int, imageID)
 		request.input('input_parameters5', sql.Int, DriverID)
 		request.input('input_parameters6', sql.Int, DriverS)
 		request.input('input_parameters7', sql.Date, DateCollected)
