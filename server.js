@@ -182,12 +182,12 @@ app.post('/REPost',function(req, res){
 	var stockid = req.body.stockid;
 	var reasonid = req.body.reasonid;
 	var invoiceref = req.body.InvoiceRef;
-	var ImageID = req.body.Image;
+	var ImageID = req.body.Image == "00" ? null : req.body.Image;
 	var BBD = req.body.BBD;
 	var Destination = req.body.Destination;
 	var Note = req.body.Note;
-	var QtyCase = req.body.QC;
-	var QtySing = req.body.QS;
+	var QtyCase = req.body.QC == "-" ? null : req.body.QC;
+	var QtySing = req.body.QS == "-" ? null : req.body.QS;
 	var Act = req.body.act;
 	console.log(ImageID);
 	if(BBD == 'null'){
