@@ -202,8 +202,8 @@ app.post('/REPost',function(req, res){
 		request.input('input_parameters6', sql.Int, Destination)
 		request.input('input_parameters7', sql.NVarChar, Note)
 		request.input('input_parameters10', sql.NVarChar, Act)
-		request.input('input_parameters8', sql.NVarChar, QC)
-		request.input('input_parameters9', sql.NVarChar, QS)
+		request.input('input_parameters8', sql.NVarChar, QtyCase)
+		request.input('input_parameters9', sql.NVarChar, QtySing)
 		request.query(`INSERT INTO dbo.RET_ReturnDetail (ReturnsHeaderID , StockItemID, ReasonID, InvoiceRef, ImageID, DestinationID, Note, QtyCase, QtySing, Action) VALUES ( @input_parameters, @input_parameters1, @input_parameters2, @input_parameters3, @input_parameters4, @input_parameters6, @input_parameters7, @input_parameters8, @input_parameters9, @input_parameters10)`, function(err, result){
 			if(err) console.log(err)
 				res.end(JSON.stringify(result));
@@ -222,8 +222,8 @@ app.post('/REPost',function(req, res){
 		request.input('input_parameters6', sql.Int, Destination)
 		request.input('input_parameters7', sql.NVarChar, Note)
 		request.input('input_parameters10', sql.NVarChar, Act)
-		request.input('input_parameters8', sql.NVarChar, QC)
-		request.input('input_parameters9', sql.NVarChar, QS)
+		request.input('input_parameters8', sql.NVarChar, QtyCase)
+		request.input('input_parameters9', sql.NVarChar, QtySing)
 		request.query(`INSERT INTO dbo.RET_ReturnDetail (ReturnsHeaderID , StockItemID, ReasonID, InvoiceRef, ImageID, BBD, DestinationID, Note, QtyCase, QtySing, Action) VALUES ( @input_parameters, @input_parameters1, @input_parameters2, @input_parameters3, @input_parameters4, @input_parameters5, @input_parameters6, @input_parameters7, @input_parameters8, @input_parameters9, @input_parameters10)`, function(err, result){
 			if(err) console.log(err)
 				res.end(JSON.stringify(result));
