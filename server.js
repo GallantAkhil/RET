@@ -140,10 +140,9 @@ app.post('/RHeader',function(req, res){
 	var status = req.body.status;
 	var imageID = req.body.image;
 	var DriverID = req.body.DriverID;
-	var DriverS = req.body.DS;
+	var DriverS = req.body.DriverS;
 	var DateCollected = req.body.DC;
 	var CustomerContact = req.body.CC;
-	console.log(DateCollected);
 	sql.connect(config, function(err){
 		if(err) console.log(err);
 		var request = new sql.Request();
