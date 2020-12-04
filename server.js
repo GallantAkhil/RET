@@ -156,7 +156,7 @@ app.post('/RHeader',function(req, res){
 		request.input('input_parameters7', sql.Date, DateCollected)
 		request.input('input_parameters8', sql.NVarChar, CustomerContact)
 		request.output('ouput_parameter', sql.Int)
-		request.query(`INSERT INTO dbo.RET_ReturnsHeader (CustomerID , DateTime, Status, LoginID, ReturnImageID, DriverID, DriverSigned, DateCollected) OUTPUT Inserted.ID VALUES ( @input_parameters, @input_parameters1, @input_parameters3, @input_parameters2, @input_parameters4, @input_parameters5, @input_parameters6, @input_parameters7)`, function(err, result){
+		request.query(`INSERT INTO dbo.RET_ReturnsHeader (CustomerID , DateTime, Status, LoginID, ReturnImageID, DriverID, DriverSigned, DateCollected, CustomerContact) OUTPUT Inserted.ID VALUES ( @input_parameters, @input_parameters1, @input_parameters3, @input_parameters2, @input_parameters4, @input_parameters5, @input_parameters6, @input_parameters7, @input_parameters8)`, function(err, result){
 			if(err) console.log(err)
 				res.end(JSON.stringify(result));
 		})
