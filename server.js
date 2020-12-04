@@ -143,7 +143,6 @@ app.post('/RHeader',function(req, res){
 	var DriverS = req.body.DS;
 	var DateCollected = req.body.DC;
 	var CustomerContact = req.body.CC;
-	if(CustomerContact != 'null'){
 	sql.connect(config, function(err){
 		if(err) console.log(err);
 		var request = new sql.Request();
@@ -161,25 +160,7 @@ app.post('/RHeader',function(req, res){
 			if(err) console.log(err)
 				res.end(JSON.stringify(result));
 		})
-	});}else{
-	sql.connect(config, function(err){
-		if(err) console.log(err);
-		var request = new sql.Request();
-		request.input('input_parameters', sql.NVarChar, custcode)
-		request.input('input_parameters1', sql.DateTime, date)
-		request.input('input_parameters2', sql.NVarChar, LoginID)
-		request.input('input_parameters3', sql.Int, status)
-		request.input('input_parameter4', sql.Int, imageID)
-		request.input('input_parameters5', sql.Int, DriverID)
-		request.input('input_parameters6', sql.Int, DriverS)
-		request.input('input_parameters7', sql.DateTime, DC)
-		request.input('input_parameters7', sql.NvarChar, CC)
-		request.output('ouput_parameter', sql.Int)
-		request.query(`INSERT INTO dbo.RET_ReturnsHeader (CustomerID , DateTime, Status, LoginID, ReturnImageID, DriverID, DriverSigned, DateCollected, CustomerContact) OUTPUT Inserted.ID VALUES ( @input_parameters, @input_parameters1, @input_parameters3, @input_parameters2, @input_parameters4, @input_parameters5, @input_parameters6, @input_parameters7, @input_parameters8)`, function(err, result){
-			if(err) console.log(err)
-				res.end(JSON.stringify(result));
-		})
-	})}
+	})
 });
 
 app.post('/Image',function(req, res){
