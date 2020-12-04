@@ -155,7 +155,7 @@ app.post('/RHeader',function(req, res){
 		request.input('input_parameters5', sql.Int, DriverID)
 		request.input('input_parameters6', sql.Int, DriverS)
 		request.input('input_parameters7', sql.Date, DateCollected)
-		request.input('input_parameters8', sql.NvarChar, CustomerContact)
+		request.input('input_parameters8', sql.NVarChar, CustomerContact)
 		request.output('ouput_parameter', sql.Int)
 		request.query(`INSERT INTO dbo.RET_ReturnsHeader (CustomerID , DateTime, Status, LoginID, ReturnImageID, DriverID, DriverSigned, DateCollected) OUTPUT Inserted.ID VALUES ( @input_parameters, @input_parameters1, @input_parameters3, @input_parameters2, @input_parameters4, @input_parameters5, @input_parameters6, @input_parameters7)`, function(err, result){
 			if(err) console.log(err)
