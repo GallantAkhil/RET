@@ -285,6 +285,25 @@ app.post('/lines',function(req, res){
 	})
 });
 
+app.post('/authrD',function(req, res){
+	var RHID = req.body.id;
+	var Action = req.body.action;
+	var authT = req.body.AuthT;
+	var authN = req.body.AuthN;
+	sql.connect(config, function(err){
+		if(err) console.log(err);
+		var request = new sql.Request();
+		request.input('input_parameters', sql.Int, RHID)
+		request.input('input_parameters1', sql.Int, Action)
+		request.input('input_parameters2', sql.DateTime, authT)
+		request.input('input_parameters3', sql.NVarChar, authN)
+		request.query(`update dbo.RET_ReturnDetail set Action = @input_parameters1, AuthorisedTime = @input_parameters2, Authorisenote = @input_parameters3 where ReturnsHeaderID = @input_parameters;`, function(err, result){
+			if(err) console.log(err)
+				res.end(JSON.stringify(result));
+		})
+	})
+});
+
 
 var server = app.listen(port, function(){
 	console.log("server is running");
