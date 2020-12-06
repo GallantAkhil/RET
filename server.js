@@ -297,6 +297,21 @@ app.post('/lines',function(req, res){
 	})
 });
 
+app.post('/status',function(req, res){
+	var RHID = req.body.id;
+	var status = req.body.status;
+	sql.connect(config, function(err){
+		if(err) console.log(err);
+		var request = new sql.Request();
+		request.input('input_parameters', sql.Int, RHID)
+		request.input('input_parameters1', sql.NVarChar, status)
+		request.query(`update dbo.RET_ReturnDetail set Status = @input_parameters where ID = RHID`, function(err, result){
+			if(err) console.log(err)
+				res.end(JSON.stringify(result));
+		})
+	})
+});
+
 app.post('/authrD',function(req, res){
 	var RHID = req.body.id;
 	var Action = req.body.action;
