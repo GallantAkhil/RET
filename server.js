@@ -260,6 +260,17 @@ app.post('/AuthReturnsD',function(req, res){
 	})
 });
 
+app.post('/Action',function(req, res){
+	sql.connect(config, function(err){
+		if(err) console.log(err);
+		var request = new sql.Request();
+		request.query(`Select * From dbo.RET_Action;`, function(err, result){
+			if(err) console.log(err)
+			res.end(JSON.stringify(result));
+		})
+	})
+});
+
 app.post('/PostImage',function(req, res){
 	var Img = req.body.Image;
 	sql.connect(config, function(err){
