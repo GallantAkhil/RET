@@ -309,7 +309,7 @@ app.post('/authrD',function(req, res){
 		request.input('input_parameters1', sql.Int, Action)
 		request.input('input_parameters2', sql.DateTime, authT)
 		request.input('input_parameters3', sql.NVarChar, authN)
-		request.query(`update dbo.RET_ReturnDetail set Action = @input_parameters1, AuthorisedTime = @input_parameters2, Authorisenote = @input_parameters3 where ReturnsHeaderID = @input_parameters;`, function(err, result){
+		request.query(`update dbo.RET_ReturnDetail set Action = @input_parameters1, AuthorisedTime = @input_parameters2, Authorisenote = @input_parameters3 where ID = @input_parameters;`, function(err, result){
 			if(err) console.log(err)
 			console.log(result);
 			res.end(JSON.stringify(result));
