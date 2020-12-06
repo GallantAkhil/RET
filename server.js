@@ -329,6 +329,9 @@ app.post('/authrD',function(req, res){
 			console.log(result);
 			res.end(JSON.stringify(result));
 		})
+		request.query(`EXEC dbo.RET_UpdateStatus @input_parameters`, function(err, result){
+			if(err) console.log(err)
+		})
 	})
 });
 
