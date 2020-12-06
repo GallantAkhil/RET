@@ -168,7 +168,7 @@ app.post('/Image',function(req, res){
 	sql.connect(config, function(err){
 		if(err) console.log(err);
 		var request = new sql.Request();
-		request.input('input_parameters', sql.Image, new Buffer(Image))
+		request.input('input_parameters', sql.Text, Image)
 		request.output('ouput_parameter', sql.Int)
 		request.query(`INSERT INTO dbo.RET_Image (Picture) OUTPUT Inserted.ID VALUES ( @input_parameters )`, function(err, result){
 			if(err) console.log(err)
