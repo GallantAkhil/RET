@@ -165,6 +165,7 @@ app.post('/RHeader',function(req, res){
 
 app.post('/Image',function(req, res){
 	var Image = req.body.Image;
+	console.log(Image);
 	sql.connect(config, function(err){
 		if(err) console.log(err);
 		var request = new sql.Request();
