@@ -304,7 +304,7 @@ app.post('/status',function(req, res){
 		if(err) console.log(err);
 		var request = new sql.Request();
 		request.input('input_parameters', sql.Int, RHID)
-		request.input('input_parameters1', sql.NVarChar, status)
+		request.input('input_parameters1', sql.Int, status)
 		request.query(`update dbo.RET_ReturnDetail set Status = @input_parameters1 where ID = @input_parameters`, function(err, result){
 			if(err) console.log(err)
 				res.end(JSON.stringify(result));
