@@ -268,8 +268,6 @@ app.post('/PostImage',function(req, res){
 		request.input('input_parameters', sql.Int, Img)
 		request.query(`Select * From dbo.RET_Image where ID = @input_parameters;`, function(err, result){
 			if(err) console.log(err)
-			result['recordset'][0]['Pict'] = result['recordset'][0]['Picture'].toString('base64');
-			result['recordset'][0]['Picture'] = '';
 			res.end(JSON.stringify(result));
 		})
 	})
