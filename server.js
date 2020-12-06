@@ -329,7 +329,7 @@ app.post('/authrD',function(req, res){
 			console.log(result);
 			res.end(JSON.stringify(result));
 		})
-		request.query(`EXEC dbo.RET_UpdateStatus ID = @input_parameters`, function(err, result){
+		request.query(`EXEC dbo.RET_UpdateStatus @ID = @input_parameters`, function(err, result){
 			if(err) console.log(err)
 		})
 	})
