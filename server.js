@@ -12,6 +12,7 @@ var config = {
 var port = process.env.PORT || 8080
 
 app.use(bodyParser.json());
+app.use(express.bodyParser({limit: '50mb'}));
 app.use(bodyParser.urlencoded({ extended: false })); 
 
 app.get('/', function(req, res){
