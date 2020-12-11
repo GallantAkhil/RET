@@ -75,7 +75,7 @@ app.post('/prod',function(req, res){
 		if(err) console.log(err);
 		var request = new sql.Request();
 		request.input('input_parameters', sql.NVarChar, custcode)
-		request.query(`SELECT TOP 1 * FROM dbo.RET_StockItem where (StockCode = @input_parameters or Barcode = @input_parameters) or (Barcode <> NULL)`, function(err, result){
+		request.query(`SELECT TOP 1 * FROM dbo.RET_StockItem where (StockCode = @input_parameters or Barcode = @input_parameters) and (Barcode <> NULL)`, function(err, result){
 			if(err) console.log(err)
 				res.end(JSON.stringify(result));
 		})
