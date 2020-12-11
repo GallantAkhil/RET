@@ -62,7 +62,7 @@ app.post('/cust',function(req, res){
 		if(err) console.log(err);
 		var request = new sql.Request();
 		request.input('input_parameters', sql.NVarChar, custcode)
-		request.query(`SELECT * FROM dbo.RET_Customer where CustomerCode = @input_parameters`, function(err, result){
+		request.query(`SELECT R.ID, R.CustomerCode, R.CustomerName, R.AddressLine1, R.AddressLine2, R.AddressLine3, R.AddressLine4, R.Telephone, R.Contact, U.Name FROM dbo.RET_Customer R inner join dbo.RET_Login U on R.ManagedBy = U.ID where R.CustomerCode = @input_parameters`, function(err, result){
 			if(err) console.log(err)
 				res.end(JSON.stringify(result));
 		})
