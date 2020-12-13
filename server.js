@@ -253,7 +253,7 @@ app.post('/AuthReturnsD',function(req, res){
 		if(err) console.log(err);
 		var request = new sql.Request();
 		request.input('input_parameters', sql.Int, RHID)
-		request.query(`Select P.ID, S.StockCode, S.Description, S.Brand, S.Issueunit, P.InvoiceRef, Q.InvoiceDate, P.BBD, P.ImageID, P.Note, P.QtyCase, P.QtySing, R.Description, P.Action From (select * from dbo.RET_ReturnDetail where ReturnsHeaderID = @input_parameters) P INNER JOIN dbo.RET_StockItem S ON P.StockItemID = S.ID INNER JOIN dbo.RET_Reasons R ON P.ReasonID = R.ID INNER JOIN dbo.RET_CustomerInvoices Q ON P.InvoiceRef = Q.InvoiceRef and S.StockCode = Q.Productcode;`, function(err, result){
+		request.query(`Select P.ID, S.StockCode, S.Description, S.Brand, S.Issueunit, P.InvoiceRef, Q.InvoiceDate, P.BBD, P.ImageID, P.Note, P.QtyCase, P.QtySing, R.Description, P.Action From (select * from dbo.RET_ReturnDetail where ReturnsHeaderID = @input_parameters) P INNER JOIN dbo.RET_StockItem S ON P.StockItemID = S.ID INNER JOIN dbo.RET_Reasons R ON P.ReasonID = R.ID LEFT JOIN dbo.RET_CustomerInvoices Q ON P.InvoiceRef = Q.InvoiceRef and S.StockCode = Q.Productcode;`, function(err, result){
 			if(err) console.log(err)
 				res.end(JSON.stringify(result));
 		})
