@@ -235,7 +235,6 @@ app.post('/REPost',function(req, res){
 });
 
 app.post('/AuthReturns',function(req, res){
-	var LoginID = req.body.LoginID;
 	sql.connect(config, function(err){
 		if(err) console.log(err);
 		var request = new sql.Request();
