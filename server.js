@@ -7,7 +7,8 @@ var config = {
     password: 'Test@123',
     server: 'mssql-16028-0.cloudclusters.net', // You can use 'localhost\\instance' to connect to named instance
     database: 'IIHF_CReturns',
-    port: 16028
+    port: 16028,
+    idleTimeoutMillis: 30000
 	};
 var port = process.env.PORT || 8080
 
